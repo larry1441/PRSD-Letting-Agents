@@ -1,0 +1,196 @@
+{% extends "layouts/main.html" %}
+
+{% block headerEnd %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us improve it.'
+  }) }}
+
+  <div class="govuk-width-container app-header-back-link">
+    {{ govukBackLink({
+      text: "Back",
+      href: "#"
+    }) }}
+  </div>
+
+{% endblock %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Follow these steps to register your property</h1>
+
+      <p class="govuk-body">If you're inactive for an hour, you'll be signed out. You can save your answers as you go and return to this page at any point.</p>
+
+      <p class="govuk-body">You'll be guided through each step, explaining what information you need to add and why.</p>
+
+      {% set completedStatus = {
+        text: "Completed"
+      } %}
+
+      {% set incompleteStatus = {
+        tag: {
+          text: "Incomplete",
+          classes: "govuk-tag--blue"
+        }
+      } %}
+
+      {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
+
+      <ol class="govuk-list govuk-list--number" start="1">
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold">
+          Register your property details
+        </li>
+      </ol>
+
+      {{ govukTaskList({
+        idPrefix: "first-section",
+        items: [
+          {
+            title: {
+              text: "Check and submit your answers"
+            },
+            href: "#",
+            status: completedStatus,
+            classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Select the type of property you're registering"
+            },
+            href: "#",
+            status: completedStatus,
+            classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Tell us how you own the property"
+            },
+            hint: {
+              text: "For example, whether you're a freeholder or leaseholder"
+            },
+            href: "#",
+            status: completedStatus,
+            classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Add information about any property licensing"
+            },
+            href: "#",
+            status: completedStatus,
+              classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Tell us whether a letting agency manages this property"
+            },
+            hint: {
+              text: "Include their name, the type of service they provide"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Not started",
+                classes: "govuk-tag--blue"
+              }
+            },
+            classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Add tenancy and rental information for the property"
+            },
+            hint: {
+              text: "Whether you have tenants, how many, the rent amount, and if bills and furnishings are included"
+            },
+            href: "#",
+            status: {
+              text: "Cannot start yet"
+            },
+            classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Invite joint landlords"
+            },
+            href: "#",
+            status: {
+              text: "Cannot start yet"
+            },
+            classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Gas safety certificate"
+            },
+            href: "#",
+            status: {
+              text: "Cannot start yet"
+            },
+            classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Electrical safety certificate"
+            },
+            href: "#",
+            status: {
+              text: "Cannot start yet"
+            },
+            classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Energy performance certificate (EPC)"
+            },
+            href: "#",
+            status: {
+              text: "Cannot start yet"
+            },
+            classes: "govuk-task-list__item"
+          }
+        ]
+      }) }}
+
+      <ol class="govuk-list govuk-list--number" start="2">
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold">
+          Check and submit property details
+        </li>
+      </ol>
+
+
+      {{ govukTaskList({
+        idPrefix: "second-section",
+        items: [
+          {
+            title: {
+              text: "Name of third task"
+            },
+            href: "#",
+            status: {
+              text: "Cannot start yet"
+            },
+              classes: "govuk-task-list__item"
+          }
+        ]
+      }) }}
+
+      <!--<div class="govuk-!-margin-top-5">
+        {{ govukButton({ text: "Apply", href: "#" }) }}
+      </div>-->
+
+    </div>
+  </div>
+{% endblock %}

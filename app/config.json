@@ -1,5 +1,5 @@
 {
-  "serviceName": "PRSD letting agents",
+  "serviceName": "Register your rental property",
   "useServiceNavigation": true,
   "plugins": {
     "govuk-frontend": {

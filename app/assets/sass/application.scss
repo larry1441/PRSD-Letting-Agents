@@ -3,4 +3,30 @@
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
 // 
 
-// Add extra styles here
+// FIX THE WDITH OF TASK LIST STATUS COLUMN
+.govuk-task-list__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 15px;
+}
+
+.govuk-task-list__name-and-hint {
+  min-width: 0;
+}
+
+.govuk-task-list__hint {
+  margin-top: 5px;
+}
+
+.govuk-task-list__status {
+  white-space: nowrap;
+}
+
+.govuk-task-list__status .govuk-tag {
+  white-space: nowrap;
+}
+
+// FIX BACK LINK ALIGNMENT
+.govuk-width-container .govuk-back-link {
+  margin-bottom: 0;
+}

@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      <h1 class="govuk-heading-l govuk-!-padding-top-1">
+        Select which type of licence applies to this property
+      </h1>
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "whereDoYouLive",
+          items: [
+            {
+              value: "Selective license",
+              text: "Selective license",
+                hint: {
+                  text: "Some local councils require this licence for any privately rented homes in specific areas"
+                }
+            },
+            {
+              value: "HMO mandatory license",
+              text: "HMO mandatory license",
+                hint: {
+                  text: "A House in Multiple Occupation (HMO) must have a licence if it's occupied by 5 or more people who form more than 1 household"
+                }
+            },
+            {
+              value: "HMO additional licence",
+              text: "HMO additional licence",
+                hint: {
+                  text: "Some local councils require a licence for smaller HMOs that are not covered by the mandatory licence"
+                }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "This property does not need a licence"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

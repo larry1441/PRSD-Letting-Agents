@@ -30,3 +30,24 @@
 .govuk-width-container .govuk-back-link {
   margin-bottom: 0;
 }
+
+// FIX THE COLOUR FOR CANNOT START YET TAG
+.govuk-task-list__status .govuk-tag--inactive {
+  background-color: transparent;
+  color: $govuk-secondary-text-colour;
+  /*border: 1px solid $govuk-border-colour;*/
+}
+
+//SECTION TEXT ABOVE H1 STYLE
+.govuk-body .section-text {
+  color: $govuk-secondary-text-colour;
+}
+
+//CONTENT TILE STYLE
+.content-tile {
+  /*background-color: transparent;*/
+  background-color: #F3F2F1;
+  border: 1px solid $govuk-border-colour;
+  padding: 15px 18px 0px 18px;
+  margin-bottom:30px;
+}

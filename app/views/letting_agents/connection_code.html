@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+ 
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      <span class="govuk-caption-l govuk-!-padding-top-1">Letting agent</span>
+      <h1 class="govuk-heading-l">Connection Code</h1>
+
+      <p class="govuk-body">This is a unique number used only for this service. We use it to link the property to the correct agency account.</p>
+
+      <p class="govuk-body">If you do not have this number, you must ask the agency for it.</p>
+
+      <form class="form" action="/connection_code" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          hint: {
+            text: "It is 10 characters long, for example, A-1234-5678."
+          },
+          classes: "govuk-!-width-one-third",
+          id: "conection-number",
+          name: "connectionNumber"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

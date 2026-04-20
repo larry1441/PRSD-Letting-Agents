@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      <h1 class="govuk-heading-l govuk-!-padding-top-1">
+        Agency not found
+      </h1>
+
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        html: "
+          <p class='govuk-body'>
+            This screen to be confirmed
+          </p>
+          <p class='govuk-body'>
+            CHECK YOU ENTERED THE CODE<br>
+            CONTACT AGENCY
+          </p>
+        "
+      }) }}
+
+      <form class="form" action="/agency_not_found" method="post">
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

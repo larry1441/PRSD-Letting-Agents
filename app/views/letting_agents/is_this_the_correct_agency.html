@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      <h1 class="govuk-heading-l govuk-!-padding-top-1">
+        Is this the correct letting agency?
+      </h1>
+
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        html: "
+          <p class='govuk-body'>
+            <span class='govuk-body govuk-!-font-weight-bold'> Letting agent name</span><br>
+            Address Line 1<br>
+            Address Line 2<br>
+            Town or City<br>
+            Postcode 1
+          </p>
+        "
+      }) }}
+
+      <form class="form" action="/is_this_the_correct_agency" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "isThisTheCorrectAgency",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

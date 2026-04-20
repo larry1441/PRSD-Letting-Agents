@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      <form class="form" action="/what_is_the_letting_agencys_address" method="post">
+
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+        {{ govukFieldset({
+          legend: {
+            text: "What is the agency's address?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) }}
+
+        {{ govukInput({
+          label: { text: "Postcode" },
+          id: "letting-agent-postcode-1",
+          name: "lettingAgentPostcode1"
+        }) }}
+
+        {{ govukInput({
+          label: { text: "Building name or number" },
+          id: "letting-agent-building-name-or-number-2",
+          name: "lettingAgentBuildingNameOrNumber2"
+        }) }}
+
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

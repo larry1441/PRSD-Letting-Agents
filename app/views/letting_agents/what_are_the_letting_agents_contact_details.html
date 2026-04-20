@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      <form class="form" action="/what_are_the_letting_agents_contact_details" method="post">
+
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+        {{ govukFieldset({
+          legend: {
+            text: "What are the letting agents contact details?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) }}
+
+        {{ govukInput({
+          label: { text: "Email address" },
+          id: "letting-agent-email-address-1",
+          name: "lettingAgentEmailAddress1"
+        }) }}
+
+        {{ govukInput({
+          label: { text: "Work phone number" },
+          id: "letting-agent-work-phone-number-2",
+          name: "letting-agent-work-phone-number-2"
+        }) }}
+
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

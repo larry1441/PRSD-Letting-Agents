@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      {{ govukPanel({
+        titleText: "Invitation sent"
+      }) }}
+
+      <p>You've invited Property Lettings & Co to manage the property record for:</p>
+
+      <p>Flat 1<br>
+        11 Elm Drive<br>
+        London<br>
+        NW8 2DK
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        Property Lettings & Co must accept your invitation before they can view or manage this property record.
+      </p>
+
+      <p>
+        We’ll email you when they accept or decline your invitation.
+      </p>
+      
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+      {{ govukWarningText({
+        text: "You must keep your property record accurate and up to date. You can view any changes the agency makes.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <form class="form" action="/invitation_sent" method="post">
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

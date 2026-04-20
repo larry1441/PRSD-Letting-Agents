@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      <span class="govuk-caption-l govuk-!-padding-top-1">Letting agent</span>
+      <h1 class="govuk-heading-l">Invite your agent to complete AND MAINTAIN this property's registration</h1>
+
+      <p class="govuk-body">Your letting agent can complete the rest of this registration and keep it up to date in the future.</p>
+
+      <div class="custom-panel">
+        <h2 class="govuk-heading-m">How it works</h2>
+
+        <h3 class="govuk-heading-s">Inviting the agency</h3>
+        <p class="govuk-body">Ask your agent for their <span class="govuk-!-font-weight-bold">sharing code</span>. We'll need it next.</p>
+
+        <h3 class="govuk-heading-s">Keeping this property registration up to date</h3>
+        <p class="govuk-body">The letting agent can make updates like adding a new gas safety certificate. We'll email you whenever they've made a change.</p>
+        <p class="govuk-body">Landlords keep full control. You can edit the registration or remove the agency at any point.</p>
+      </div>
+
+
+      <form class="form" action="/do_you_want_to_invite_a_letting_agent_to_this_registration" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "inviteLettingAgentToRegistration",
+          fieldset: {
+              legend: {
+                text: "Do you want to invite a letting agent to this registration?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              hint: {
+                text: "My agent has agreed to keep this registration up to date"
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

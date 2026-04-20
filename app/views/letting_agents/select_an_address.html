@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-body section-text">Section 1 of 2 — Register your property details</p>
+
+      <h1 class="govuk-heading-l">Select an address</h1>
+
+      <p class="govuk-body">
+        3 addresses found for <span class="govuk-!-font-weight-bold">SW9 0HD</span> and <span  class="govuk-!-font-weight-bold">9</span>. <a href="/letting_agents/what_is_the_letting_agencys_address" class="govuk-link govuk-link--no-visited-state">Search again</a>
+      </p>
+
+      <form class="form" action="/select_an_address" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "selectAnAddress",
+          fieldset: {
+            legend: {
+              text: "Select an address",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "9 Caldwell Street, London, SW9 0HD",
+              text: "9 Caldwell Street, London, SW9 0HD"
+            },
+            {
+              value: "29 Caldwell Street, London, SW9 0HD",
+              text: "29 Caldwell Street, London, SW9 0HD"
+            },
+            {
+              value: "w39 Caldwell Street, London, SW9 0HDles",
+              text: "39 Caldwell Street, London, SW9 0HD"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "I want to manually enter my address",
+              text: "I want to manually enter my address"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

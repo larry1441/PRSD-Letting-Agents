@@ -33,7 +33,7 @@ router.post('/what_is_the_name_of_the_letting_agency', function(request, respons
 
 // What is the agency’s address
 router.post('/what_is_the_letting_agencys_address', function(request, response) {
-    response.redirect("letting_agents/select_an_address")
+    response.redirect("/letting_agents/select_an_address")
 })
 
 // Select an address
@@ -77,19 +77,18 @@ router.post('/agency_not_found', function(request, response) {
     response.redirect("/letting_agents/connection_code")
 })
 
-
-
-
-
-
-
-
-
-
-// xxx
-router.post('/xxx', function(request, response) {
-    response.redirect("http://blog.blackmondaydesign.com")
+// Invitation sent
+router.post('/invitation_sent', function(request, response) {
+    response.redirect("https://blog.blackmondaydesign.com")
 })
+
+
+
+
+
+
+
+
 
 // xxx
 router.post('/xxx', function(request, response) {

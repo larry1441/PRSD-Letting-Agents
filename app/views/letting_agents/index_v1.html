@@ -29,7 +29,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Registere your property</h1>
+      <h1 class="govuk-heading-l">Follow these steps to register your property</h1>
+
+      <p class="govuk-body">If you're inactive for an hour, you'll be signed out. You can save your answers as you go and return to this page at any point.</p>
+
+      <p class="govuk-body">You'll be guided through each step, explaining what information you need to add and why.</p>
 
       {% set completedStatus = {
         text: "Completed"
@@ -44,14 +48,18 @@
 
       {# To switch between the completed and incomplete statues, use some inline logic within the component below, like this: "status: (completedStatus if ... else incompleteStatus)" #}
 
-      <h2 class="govuk-heading-m">Register your property</h2>
+      <ol class="govuk-list govuk-list--number" start="1">
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold">
+          Register your property details
+        </li>
+      </ol>
 
       {{ govukTaskList({
         idPrefix: "first-section",
         items: [
           {
             title: {
-              text: "Address"
+              text: "Check and submit your answers"
             },
             href: "#",
             status: completedStatus,
@@ -59,7 +67,7 @@
           },
           {
             title: {
-              text: "Property type"
+              text: "Select the type of property you're registering"
             },
             href: "#",
             status: completedStatus,
@@ -67,7 +75,10 @@
           },
           {
             title: {
-              text: "Property ownership"
+              text: "Tell us how you own the property"
+            },
+            hint: {
+              text: "For example, whether you're a freeholder or leaseholder"
             },
             href: "#",
             status: completedStatus,
@@ -75,26 +86,18 @@
           },
           {
             title: {
-              text: "Joint landlords"
+              text: "Add information about any property licensing"
             },
             href: "#",
             status: completedStatus,
               classes: "govuk-task-list__item"
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-m">Rental details</h2>
-
-      {{ govukTaskList({
-        idPrefix: "second-section",
-        items: [
+          },
           {
             title: {
-              text: "Letting agent"
+              text: "Tell us whether a letting agency manages this property"
             },
             hint: {
-              text: "You can invite a letting agent to provide this property’s rental details for you."
+              text: "Include their name, the type of service they provide"
             },
             href: "/letting_agents/do_you_use_a_letting_agent_to_manage_this_property.html",
             status: {
@@ -107,7 +110,10 @@
           },
           {
             title: {
-              text: "Property licensing"
+              text: "Add tenancy and rental information for the property"
+            },
+            hint: {
+              text: "Whether you have tenants, how many, the rent amount, and if bills and furnishings are included"
             },
             status: {
               tag: {
@@ -119,19 +125,7 @@
           },
           {
             title: {
-              text: "Current tenancy"
-            },
-            status: {
-              tag: {
-                text: "Cannot start yet",
-                classes: "govuk-tag--inactive"
-              }
-            },
-            classes: "govuk-task-list__item"
-          },
-          {
-            title: {
-              text: "Energy performance certificate (EPC)"
+              text: "Invite joint landlords"
             },
             status: {
               tag: {
@@ -164,18 +158,35 @@
               }
             },
             classes: "govuk-task-list__item"
+          },
+          {
+            title: {
+              text: "Energy performance certificate (EPC)"
+            },
+            status: {
+              tag: {
+                text: "Cannot start yet",
+                classes: "govuk-tag--inactive"
+              }
+            },
+            classes: "govuk-task-list__item"
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Submit this registration</h2>
+      <ol class="govuk-list govuk-list--number" start="2">
+        <li class="govuk-!-font-size-24 govuk-!-font-weight-bold">
+          Check and submit property details
+        </li>
+      </ol>
+
 
       {{ govukTaskList({
         idPrefix: "second-section",
         items: [
           {
             title: {
-              text: "Check and submit your answers"
+              text: "Name of third task"
             },
             status: {
               tag: {
